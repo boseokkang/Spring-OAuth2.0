@@ -21,8 +21,26 @@ spring:
       
   jpa:
     hibernate:
-      ddl-auto: update #create update none
+      ddl-auto: create #create update none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl #내가 적은 그대로 테이블 속성명으로 넣어줌 
     show-sql: true
+    
+  security:
+    oauth2:
+      client:
+        registration:
+          google: # /oauth2/authorization/google 주소를 동작하게 함!
+            client-id: 100702056138-togod64a0639p3glr6ja6c8b6kpkkdo1.apps.googleusercontent.com
+            client-secret: IAVwxi8tuYMNiUGWPoWkgF5n
+            scope:
+            - email
+            - profile
+          facebook:
+            client-id: 100702056138-togod64a0639p3glr6ja6c8b6kpkkdo1.apps.googleusercontent.com
+            client-secret: IAVwxi8tuYMNiUGWPoWkgF5n
+            scope:
+            - email
+            - profile
+    
     

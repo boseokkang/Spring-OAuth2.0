@@ -1,6 +1,6 @@
-# Spring Security 
+# Spring Security 기본 Version.1
 
-### - 페이스북, 구글 로그인 및 기본 시큐리티 연동
+### MySQL DB 및 사용자 생성
 
 ```sql
 create user 'cos'@'%' identified by 'cos1234';
@@ -8,46 +8,7 @@ GRANT ALL PRIVILEGES ON *.* TO 'cos'@'%';
 create database security;
 use security;
 ```
-### application.yml 설정
 
-```yml
-server:
-  port: 8080
-  servlet:
-    context-path: /
-    encoding:
-      charset: UTF-8
-      enabled: true
-      force: true
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/security?serverTimezone=Asia/Seoul
-    username: cos
-    password: cos1234
-  mvc:
-    view:
-      prefix: /templates/
-      suffix: .mustache
-  jpa:
-    hibernate:
-      ddl-auto: update #create update none
-      naming:
-        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-    show-sql: true
-    
-    security:
-    oauth2:
-      client:
-        registration:
-          google: # /oauth2/authorization/google 이 주소를 동작하게 한다.
-            client-id: ????
-            client-secret: ????
-            scope:
-              - email
-              - profile
-    
-    
 ### SecurityConfig.java 권한 설정 방법
 
 ```java
